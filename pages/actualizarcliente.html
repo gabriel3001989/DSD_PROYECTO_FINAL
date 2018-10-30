@@ -1,76 +1,233 @@
-﻿<div id="CarruselActualizarCliente" data-interval="false" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active" style="overflow-y:auto;">
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    </head>
+    <body>
 
-            <!-- PANTALLA PRINCIPAL -->
-            <div class="container mt-3">
-            <div class="form-row">
-                <div class="form-group col-md-3">
-                    <span class="etiqueta">
-                        DNI
-                    </span>
-                    <input type="text" class="form-control" id="txtClientePantallaPrincipal" />
-                </div>
-                <div class="form-group col-md-6">
-                    <span class="etiqueta">
-                        Nombre:
-                    </span>
-                    <input type="text" class="form-control" id="txtNombrePantallaPrincipal" />
-                </div>
-             </div>  
-             <div class="form-row"> 
-                <div class="form-group col-md-3">
-                    <span class="etiqueta">
-                        RUC:
-                    </span>
-                    <input type="text" class="form-control" id="txtRucPantallaPrincipal" />
-                </div>
-                <div class="form-group col-md-6">
-                    <span class="etiqueta">
-                        Razón Social:
-                    </span>
-                    <input type="text" class="form-control" id="txtRazonSocialPantallaPrincipal" />
-                </div>
-                <div class="col-sm-2">
-                    <br />
-                    <button class="btn btn-success float-right btn-sm btn-block" id="btnBuscarClientePantallaPrincipal">
-                        <i class="fas fa-search"></i>
-                        Buscar
-                    </button>
-                </div>
-            </div>
-            <div class="row mt-2">
-                <div class="col-sm-12">
-                    <table id="tablaIngresoStock"></table>
-                    <div id="pagertablaIngresoStock"></div>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-sm-12">
-                    <button class="btn btn-secondary float-right ml-2 btn-sm" id="btnSalirCliente">
-                        <i class="far fa-trash-alt"></i>
-                        Salir
-                    </button>
-                    <button class="btn btn-secondary float-right ml-2 btn-sm" id="btnEliminarCliente">
-                        <i class="far fa-trash-alt"></i>
-                        Eliminar
-                    </button>
-                    <button class="btn btn-secondary float-right ml-2 btn-sm" id="btnConsultarCliente">
-                        <i class="fas fa-search-plus"></i>
-                        Consultar
-                    </button>
-                    <button class="btn btn-secondary float-right ml-2 btn-sm" id="btnModificarCliente">
-                        <i class="far fa-share-square"></i>
-                        Modificar
-                    </button>
-                    <button class="btn btn-secondary float-right btn-sm" id="btnNuevoCliente">
-                        <i class="far fa-file"></i>
-                        Nuevo
-                    </button>
+            <div class="container mt-3" id="divContenido">
 
-                </div>
-            </div>
-            </div>
-        </div>
+                <h2 id="checkboxes-and-radios"><div>Lista de Clientes</div></h2>
+                <br>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <span class="etiqueta">
+                            DNI
+                        </span>
+                        <input type="text" class="form-control" id="txtClientePantallaPrincipal" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <span class="etiqueta">
+                            Nombre:
+                        </span>
+                        <input type="text" class="form-control" id="txtNombrePantallaPrincipal" />
+                    </div>
+                 </div>  
 
-<script src="../js/mantenercontrato.js"></script>
+                <div class="form-row"> 
+                    <div class="form-group col-md-3">
+                        <span class="etiqueta">
+                            RUC:
+                        </span>
+                        <input type="text" class="form-control" id="txtRucPantallaPrincipal" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <span class="etiqueta">
+                            Razón Social:
+                        </span>
+                        <input type="text" class="form-control" id="txtRazonSocialPantallaPrincipal" />
+                    </div>
+                    <div class="col-sm-2">
+                        <br />
+                        <button class="btn btn-success float-right btn-sm btn-block" id="btnBuscarClientePantallaPrincipal">
+                            <i class="fas fa-search"></i>
+                            Buscar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row mt">
+                    <div class="col-sm-12 text-center">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                    <th scope="col">Cod. Cliente</th>
+                                    <th scope="col">Nombres</th>
+                                    <th scope="col">Apellidos</th>
+                                    <th scope="col">DNI</th>
+                                    <th scope="col">Razón Social</th>
+                                    <th scope="col">RUC</th>
+                                    <th scope="col">Dirección</th>
+                                    <th scope="col">Tipo Persona</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                    <td>00001</td>
+                                    <td>Gabriel</td>
+                                    <td>Ramos Zapata</td>
+                                    <td>34545657</td>
+                                    <td></td>
+                                    <td>103452635467</td>
+                                    <td>Av. La Marina N° 2354</td>
+                                    <td>Persona Natural</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                    <td>00002</td>
+                                    <td>Luis</td>
+                                    <td>Alonso Elguera</td>
+                                    <td>45637477</td>
+                                    <td></td>
+                                    <td>103454673452</td>
+                                    <td>Calle San Luis N° 342</td>
+                                    <td>Persona Natural</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                    <td>00003</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>SYSDE S.A.</td>
+                                    <td>203463546712</td>
+                                    <td>Av. Javier Prado N° 2435</td>
+                                    <td>Persona Jurídica</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                    <td>00004</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>INDRA S.A.</td>
+                                    <td>203546243564</td>
+                                    <td>Calle Los Rosales N° 345</td>
+                                    <td>Persona Jurídica</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-sm-12">
+                        <button class="btn btn-secondary float-right ml-2 btn-sm" id="btnSalirCliente">
+                            <i class="far fa-share-square"></i>
+                            Salir
+                        </button>
+                        <button class="btn btn-secondary float-right ml-2 btn-sm" id="btnEliminarCliente">
+                            <i class="far fa-trash-alt"></i>
+                            Eliminar
+                        </button>
+                        <button class="btn btn-secondary float-right ml-2 btn-sm" id="btnConsultarCliente">
+                            <i class="fas fa-search-plus"></i>
+                             Consultar
+                        </button>
+                        <button class="btn btn-primary float-right ml-2 btn-sm" data-toggle="modal" data-target="#exampleModalLong" id="btnModificarCliente">
+                            <i class="far fa-edit"></i>
+                            Modificar
+                        </button>
+                        <button class="btn btn-secondary float-right btn-sm" id="btnNuevoCliente">
+                            <i class="far fa-file"></i>
+                            Nuevo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document" style="max-width: 1200px !important;">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 id="checkboxes-and-radios"><div>Edición de Clientes</div></h2>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                                            
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Cod. Cliente</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" value="00001" disabled>
+                                        </div>                                                                    
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Nombres</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" value="Gabriel">
+                                        </div>
+                                        <label class="col-sm-2 col-form-label">Tipo de Persona</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" value="Persona Natural">
+                                        </div>   
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Apellidos</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" value="Ramos Zapata">
+                                        </div>
+                                        <label class="col-sm-1 col-form-label">DNI</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" value="34545657">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Razón Social</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" value="">
+                                        </div>
+                                        <label class="col-sm-1 col-form-label">RUC</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Dirección</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" value="Av. La Marina N° 2354">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Email</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" value="gabrielrz@gmail.com">
+                                        </div>
+                                        <label class="col-sm-1 col-form-label">Teléfono</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" value="943562345">
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <div class="row mt">
+                                        <div class="col-sm-10 text-right">
+                                            <button class="btn btn-secondary" id="btnCancelarModificar">
+                                                <i class="far fa-edit"></i>
+                                                Grabar
+                                            </button>
+                                            <button class="btn btn-secondary" id="btnFinalizarModificar">
+                                                <i class="far fa-share-square"></i>
+                                                Cancelar
+                                            </button>
+                                        </div>                                        
+                                    </div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+
+            </div>
+</body>
+</html>
+
+
