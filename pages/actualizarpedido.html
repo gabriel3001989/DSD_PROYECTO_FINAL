@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    </head>
+    <body>
+
+        <div class="container mt-3" id="divContenido">
+
+            <h2 id="checkboxes-and-radios"><div>Lista de Pedidos</div></h2>
+            <br>
+            <div class="form-row">
+                <div class="col-sm-3 text-left">
+                Nro. de Pedido:
+                </div>
+                <div class="col-sm-3 text-center">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" aria-describedby="basic-addon2">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+				<div class="col-sm-3 text-left">
+                Nombre del Cliente:
+                </div>
+                <div class="col-sm-9 text-center">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button">Buscar</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt">
+                <div class="col-sm-12 text-center">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                <th scope="col">Nro. de pedido</th>
+                                <th scope="col">Nombre del cliente</th>
+                                <th scope="col">Fecha de Pedido</th>
+                                <th scope="col">Monto Total</th>
+                                <th scope="col">Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                <td>10004895</td>
+                                <td>Hernan Rodrigo Pareja Jordan</td>
+                                <td>01-07-2018</td>
+                                <td>192.70</td>
+                                <td>Registrado</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                <td>10004689</td>
+                                <td>Juan Jose Ayala Villegas</td>
+                                <td>01-07-2018</td>
+                                <td>1780.50</td>
+                                <td>Registrado</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                <td>10004533</td>
+                                <td>Claudia Lorena Garcia Ramos</td>
+                                <td>30-06-2018</td>
+                                <td>856.90</td>
+                                <td>Anulado</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                <td>10004178</td>
+                                <td>Gabriel Ramos zapata</td>
+                                <td>29-06-2018</td>
+                                <td>2480.50</td>
+                                <td>Aprobado</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            </br></br>
+            <div class="row mt">
+                <div class="col-sm-12 text-right">
+                    <button class="btn btn-secondary float-right ml-2 btn-sm" id="btnSalirProducto">
+                        <i class="far fa-share-square"></i>
+                        Salir
+                    </button>
+                    <button class="btn btn-secondary float-right ml-2 btn-sm" data-toggle="modal" data-target="#ModalModificar" id="btnModificarProducto">
+                        <i class="far fa-share-square"></i>
+                        Modificar
+                    <button class="btn btn-secondary float-right ml-2 btn-sm" data-toggle="modal" data-target="#ModalConsultar" id="btnConsultarProducto">
+                        <i class="far fa-share-square"></i>
+                        Consultar
+                    </button>
+                    <button class="btn btn-secondary float-right ml-2 btn-sm" data-toggle="modal" data-target="#ModalRegistrar" id="btnRegistrarProducto">
+                        <i class="far fa-edit"></i>
+                        Registrar
+                    </button>
+                </div>                                        
+            </div>
+
+        </div>
+
+        <!-- Modal Registrar Pedido-->
+        <div class="modal fade" id="ModalRegistrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="max-width: 1300px !important;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 id="checkboxes-and-radios"><div>Registrar Pedido</div></h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="col-sm-2 text-left">
+                                Cliente:
+                                </div>
+                                <div class="col-sm-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" aria-describedby="basic-addon2">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary" type="button">Buscar</button>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Dirección:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" value="" disabled>
+                                </div>
+                                <label class="col-sm-2 col-form-label">RUC/DNI:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="" disabled>
+                                </div>
+                            </div>
+
+                            </br></br>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Producto:</label>
+                                <div class="form-group col-md-6">
+                                  <!--<<label for="inputState">Tipo de Persona:</label>-->
+                                  <select id="inputState" class="form-control">
+                                    <option selected>Producto 1</option>
+                                    <option>Producto 2</option>
+                                    <option>Producto 3</option>
+                                    <option>Producto 4</option>
+                                    <option>Producto 5</option>
+                                    <option>Producto 6</option>
+                                    <option>Producto 7</option>
+                                    <option>Producto 8</option>
+                                    <option>Producto 9</option>
+                                    <option>Producto 10</option>
+                                  </select>
+                                </div>
+                                <label class="col-sm-2 col-form-label">Precio:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="" disabled>
+                                </div> 
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Cantidad:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="">
+                                </div>    
+                                <div class="col-sm-2">
+                                    <button class="btn btn-success float-right btn-sm btn-block" id="btnAgregarProducto">
+                                        <i class="fas fa-search"></i>
+                                        Agregar
+                                    </button>
+                                </div>                           
+                            </div>
+                            </br></br>
+
+                            <div class="row mt">
+                                <div class="col-sm-12 text-center">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Código</th>
+                                                <th scope="col">Cantidad</th>
+                                                <th scope="col">Producto</th>
+                                                <th scope="col">Precio</th>
+                                                <th scope="col">Sub Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                                       
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 text-right col-form-label">Descuento:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="" disabled>
+                                </div>
+                            </div>                           
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 text-right col-form-label">Monto Total:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="" disabled>
+                                </div>
+                            </div>
+                        </form>
+
+						</br></br>
+                        <div class="row mt">
+                            <div class="col-sm-11 text-right">
+                                <button class="btn btn-secondary" id="btnRegistrarRegistrar">
+                                    <i class="far fa-share-square"></i>
+                                    Registrar
+                                </button>
+                                <button class="btn btn-secondary" data-dismiss="modal" id="btnCancelarRegistrar">
+                                    <span aria-hidden="true"></span>
+                                    <i class="far fa-share-square"></i>
+                                    Cancelar
+                                </button>
+                            </div>                                        
+                        </div>
+                        </br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Consultar Pedido-->
+        <div class="modal fade" id="ModalConsultar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="max-width: 1300px !important;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 id="checkboxes-and-radios"><div>Consultar Pedido</div></h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Cliente:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" value="Gabriel Ramos zapata" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Dirección:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" value="Av. La Marina N° 2354" disabled>
+                                </div>
+                                <label class="col-sm-2 col-form-label">RUC/DNI:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="34545657" disabled>
+                                </div>
+                            </div>
+
+                            </br></br>
+                            <div class="row mt">
+                                <div class="col-sm-12 text-center">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Código</th>
+                                                <th scope="col">Cantidad</th>
+                                                <th scope="col">Producto</th>
+                                                <th scope="col">Precio</th>
+                                                <th scope="col">Sub Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>0001</td>
+                                                <td>4</td>
+                                                <td>Producto 1</td>
+                                                <td>25.00</td>
+                                                <td>100.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0002</td>
+                                                <td>10</td>
+                                                <td>Producto 2</td>
+                                                <td>2.00</td>
+                                                <td>20.00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                                       
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 text-right col-form-label">Descuento:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="0.00" disabled>
+                                </div>
+                            </div>                           
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 text-right col-form-label">Monto Total:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="120.00" disabled>
+                                </div>
+                            </div>
+                        </form>
+
+                        </br></br>
+                        <div class="row mt">
+                            <div class="col-sm-11 text-right">
+                                <button class="btn btn-secondary" data-dismiss="modal" id="btnRegresarRegistrar">
+                                    <span aria-hidden="true"></span>
+                                    <i class="far fa-share-square"></i>
+                                    Regresar
+                                </button>
+                            </div>                                        
+                        </div>
+                        </br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Modificar Pedido-->
+        <div class="modal fade" id="ModalModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="max-width: 1300px !important;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 id="checkboxes-and-radios"><div>Modificar Pedido</div></h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Cliente:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" value="Gabriel Ramos zapata" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Dirección:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" value="Av. La Marina N° 2354" disabled>
+                                </div>
+                                <label class="col-sm-2 col-form-label">RUC/DNI:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="34545657" disabled>
+                                </div>
+                            </div>
+
+                            </br></br>
+                            <div class="row mt">
+                                <div class="col-sm-12 text-center">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Código</th>
+                                                <th scope="col">Cantidad</th>
+                                                <th scope="col">Producto</th>
+                                                <th scope="col">Precio</th>
+                                                <th scope="col">Sub Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>0001</td>
+                                                <td>4</td>
+                                                <td>Producto 1</td>
+                                                <td>25.00</td>
+                                                <td>100.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0002</td>
+                                                <td>10</td>
+                                                <td>Producto 2</td>
+                                                <td>2.00</td>
+                                                <td>20.00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                                       
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 text-right col-form-label">Descuento:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="0.00" disabled>
+                                </div>
+                            </div>                           
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 text-right col-form-label">Monto Total:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="120.00" disabled>
+                                </div>
+                            </div>
+                        </form>
+
+                        </br></br>
+                        <div class="row mt">
+                            <div class="col-sm-11 text-right">
+                                <button class="btn btn-secondary" id="btnAprobarModificar">
+                                    <i class="far fa-share-square"></i>
+                                    Aprobar
+                                </button>
+                                <button class="btn btn-secondary" id="btnAnularModificar">
+                                    <i class="far fa-share-square"></i>
+                                    Anular
+                                </button>
+                                <button class="btn btn-secondary" data-dismiss="modal" id="btnRegresar2Modificar">
+                                    <span aria-hidden="true"></span>
+                                    <i class="far fa-share-square"></i>
+                                    Regresar
+                                </button>
+                            </div>                                        
+                        </div>
+                        </br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+</html>

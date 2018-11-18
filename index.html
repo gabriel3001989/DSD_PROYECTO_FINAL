@@ -32,15 +32,6 @@
             <ul class="navbar-nav mr-auto">
 
               <li class="nav-item desactive">
-                <a class="nav-link" href="#">
-                  <div class="SubOption" page="pages/actualizarcliente.html" id="btnActualizarPedidoMain">
-                    <i class="far fa-newspaper fa-2x"></i>
-                    Actualizar Pedido<span class="sr-only">(current)</span>                  
-                  </div>  
-                </a>                           
-              </li>
- 
-              <li class="nav-item desactive">
                 <a class="nav-link" href="#">          
                   <div class="SubOption" page="pages/actualizarcliente.html" id="btnActualizarClienteMain">         
                     <i class="far fa-newspaper fa-2x"></i>
@@ -48,15 +39,24 @@
                   </div>   
                 </a>
               </li>              
-                        
-              <div class="SubOption" page="pages/actualizarcliente.html" id="btnGenerarComprobanteMain"> 
+              
+              <li class="nav-item desactive">
+                <a class="nav-link" href="#">
+                  <div class="SubOption" page="pages/actualizarpedido.html" id="btnActualizarPedidoMain">
+                    <i class="far fa-newspaper fa-2x"></i>
+                    Actualizar Pedido<span class="sr-only">(current)</span>                  
+                  </div>  
+                </a>                           
+              </li>
+
+              <div class="SubOption" page="pages/generarcomprobante.html" id="btnGenerarComprobanteMain"> 
                 <a class="nav-link" href="#">  
                   <i class="far fa-newspaper fa-2x"></i>
                   Generar Comprobante de Pago<span class="sr-only">(current)</span>
                 </a>
               </div>
 
-              <div class="SubOption" page="pages/guia.html" id="btnGenerarGuiaMain"> 
+              <div class="SubOption" page="pages/generarguia.html" id="btnGenerarGuiaMain"> 
                   <a class="nav-link" href="#">
                     <i class="far fa-newspaper fa-2x"></i>
                     Generar Guía de Remisión<span class="sr-only">(current)</span>                      
@@ -95,6 +95,30 @@
 
     <script>
         $('#btnActualizarClienteMain').on('click', function () {
+            $('div.SubOption').removeClass('option-active');
+            $(this).addClass('option-active');
+            $('#divContenido').load($(this).attr('page') + '?_c=' + GenerarStringAleatorio(15));
+        });
+
+        $('#btnLogo').on('click', function () {
+            OpenDialogo('dialogoFotoGrupo');
+        });
+    </script>
+
+    <script>
+        $('#btnActualizarPedidoMain').on('click', function () {
+            $('div.SubOption').removeClass('option-active');
+            $(this).addClass('option-active');
+            $('#divContenido').load($(this).attr('page') + '?_c=' + GenerarStringAleatorio(15));
+        });
+
+        $('#btnLogo').on('click', function () {
+            OpenDialogo('dialogoFotoGrupo');
+        });
+    </script>
+
+    <script>
+        $('#btnGenerarComprobanteMain').on('click', function () {
             $('div.SubOption').removeClass('option-active');
             $(this).addClass('option-active');
             $('#divContenido').load($(this).attr('page') + '?_c=' + GenerarStringAleatorio(15));

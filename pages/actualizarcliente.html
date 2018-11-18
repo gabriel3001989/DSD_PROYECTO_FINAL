@@ -12,7 +12,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <span class="etiqueta">
-                            DNI
+                            DNI:
                         </span>
                         <input type="text" class="form-control" id="txtClientePantallaPrincipal" />
                     </div>
@@ -60,6 +60,9 @@
                                     <th scope="col">RUC</th>
                                     <th scope="col">Dirección</th>
                                     <th scope="col">Tipo Persona</th>
+                                    <!-- 
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Teléfono</th>-->
                                 </tr>
                             </thead>
                             <tbody>
@@ -73,6 +76,8 @@
                                     <td>103452635467</td>
                                     <td>Av. La Marina N° 2354</td>
                                     <td>Persona Natural</td>
+                                    <!--<td>gabrielrz@gmail.com</td>
+                                    <td>943562345</td>-->
                                 </tr>
                                 <tr>
                                     <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
@@ -107,42 +112,43 @@
                                     <td>Calle Los Rosales N° 345</td>
                                     <td>Persona Jurídica</td>
                                 </tr>
+
                             </tbody>
                         </table>
                     </div>
                 </div>
-
+                </br></br>
                 <div class="row mt-3">
                     <div class="col-sm-12">
                         <button class="btn btn-secondary float-right ml-2 btn-sm" id="btnSalirCliente">
                             <i class="far fa-share-square"></i>
                             Salir
                         </button>
-                        <button class="btn btn-secondary float-right ml-2 btn-sm" id="btnEliminarCliente">
+                        <button class="btn btn-secondary float-right ml-2 btn-sm" data-toggle="modal" data-target="#ModalEliminar" id="btnEliminarCliente">
                             <i class="far fa-trash-alt"></i>
                             Eliminar
                         </button>
-                        <button class="btn btn-secondary float-right ml-2 btn-sm" id="btnConsultarCliente">
-                            <i class="fas fa-search-plus"></i>
-                             Consultar
-                        </button>
-                        <button class="btn btn-primary float-right ml-2 btn-sm" data-toggle="modal" data-target="#exampleModalLong" id="btnModificarCliente">
+                        <button class="btn btn-secondary float-right ml-2 btn-sm" data-toggle="modal" data-target="#ModalModificar" id="btnModificarCliente">
                             <i class="far fa-edit"></i>
                             Modificar
                         </button>
-                        <button class="btn btn-secondary float-right btn-sm" id="btnNuevoCliente">
+                        <button class="btn btn-secondary float-right ml-2 btn-sm" data-toggle="modal" data-target="#ModalConsultar" id="btnConsultarCliente">
+                            <i class="fas fa-search"></i>
+                            Consultar 
+                        </button>
+                        <button class="btn btn-secondary float-right btn-sm" data-toggle="modal" data-target="#ModalCrear" id="btnNuevoCliente">
                             <i class="far fa-file"></i>
                             Nuevo
                         </button>
                     </div>
                 </div>
 
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                    <div class="modal-dialog" role="document" style="max-width: 1200px !important;">
+                <!-- Modal Crear Clientes-->
+                <div class="modal fade" id="ModalCrear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document" style="max-width: 1300px !important;">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h2 id="checkboxes-and-radios"><div>Edición de Clientes</div></h2>
+                                <h2 id="checkboxes-and-radios"><div>Crear Clientes</div></h2>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -151,76 +157,359 @@
                             <div class="modal-body">
                                 <form>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Cod. Cliente</label>
+                                        <label class="col-sm-2 col-form-label">Cod. Cliente:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" value="00005" disabled>
+                                        </div>                                                                    
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Nombres:</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" value="">
+                                        </div>
+                                        <label class="col-sm-2 col-form-label">Tipo de Persona:</label>
+                                        <div class="form-group col-md-3">
+                                          <!--<<label for="inputState">Tipo de Persona:</label>-->
+                                          <select id="inputState" class="form-control">
+                                            <option selected>Persona Natural</option>
+                                            <option>Persona Jurídica</option>
+                                          </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Apellidos:</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" value="">
+                                        </div>
+                                        <label class="col-sm-1 col-form-label">DNI:</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Razón Social:</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" value="">
+                                        </div>
+                                        <label class="col-sm-1 col-form-label">RUC:</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Dirección:</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Email:</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" value="">
+                                        </div>
+                                        <label class="col-sm-1 col-form-label">Teléfono:</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" value="">
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    </br></br>
+                                    <div class="row mt">
+                                        <div class="col-sm-11 text-right">
+                                            <button class="btn btn-secondary" id="btnModificarModificar">
+                                                <i class="far fa-edit"></i>
+                                                Crear
+                                            </button>
+                                            <button class="btn btn-secondary" data-dismiss="modal" id="btnCancelarModificar">
+                                                <span aria-hidden="true"></span>
+                                                <i class="far fa-share-square"></i>
+                                                Cancelar
+                                            </button>
+                                        </div>                                        
+                                    </div>
+                                    </br>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+
+                <!-- Modal Modificar Clientes-->
+                <div class="modal fade" id="ModalModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document" style="max-width: 1300px !important;">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 id="checkboxes-and-radios"><div>Modificar Clientes</div></h2>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                                            
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Cod. Cliente:</label>
                                         <div class="col-sm-3">
                                             <input type="text" class="form-control" value="00001" disabled>
                                         </div>                                                                    
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Nombres</label>
+                                        <label class="col-sm-2 col-form-label">Nombres:</label>
                                         <div class="col-sm-4">
                                             <input type="text" class="form-control" value="Gabriel">
-                                        </div>
-                                        <label class="col-sm-2 col-form-label">Tipo de Persona</label>
-                                        <div class="col-sm-3">
-                                            <input type="text" class="form-control" value="Persona Natural">
-                                        </div>   
+                                        </div> 
+                                        <label class="col-sm-2 col-form-label">Tipo de Persona:</label>
+                                        <div class="form-group col-md-3">
+                                          <!--<<label for="inputState">Tipo de Persona:</label>-->
+                                          <select id="inputState" class="form-control">
+                                            <option selected>Persona Natural</option>
+                                            <option>Persona Jurídica</option>
+                                          </select>
+                                        </div> 
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Apellidos</label>
+                                        <label class="col-sm-2 col-form-label">Apellidos:</label>
                                         <div class="col-sm-6">
                                             <input type="text" class="form-control" value="Ramos Zapata">
                                         </div>
-                                        <label class="col-sm-1 col-form-label">DNI</label>
+                                        <label class="col-sm-1 col-form-label">DNI:</label>
                                         <div class="col-sm-2">
                                             <input type="text" class="form-control" value="34545657">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Razón Social</label>
+                                        <label class="col-sm-2 col-form-label">Razón Social:</label>
                                         <div class="col-sm-6">
                                             <input type="text" class="form-control" value="">
                                         </div>
-                                        <label class="col-sm-1 col-form-label">RUC</label>
+                                        <label class="col-sm-1 col-form-label">RUC:</label>
                                         <div class="col-sm-2">
                                             <input type="text" class="form-control" value="">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Dirección</label>
+                                        <label class="col-sm-2 col-form-label">Dirección:</label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" value="Av. La Marina N° 2354">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Email</label>
+                                        <label class="col-sm-2 col-form-label">Email:</label>
                                         <div class="col-sm-6">
                                             <input type="text" class="form-control" value="gabrielrz@gmail.com">
                                         </div>
-                                        <label class="col-sm-1 col-form-label">Teléfono</label>
+                                        <label class="col-sm-1 col-form-label">Teléfono:</label>
                                         <div class="col-sm-2">
                                             <input type="text" class="form-control" value="943562345">
                                         </div>
                                     </div>
                                     <br>
 
+                                    </br></br>
                                     <div class="row mt">
                                         <div class="col-sm-10 text-right">
-                                            <button class="btn btn-secondary" id="btnCancelarModificar">
+                                            <button class="btn btn-secondary" id="btnModificarModificar">
                                                 <i class="far fa-edit"></i>
-                                                Grabar
+                                                Modificar
                                             </button>
-                                            <button class="btn btn-secondary" id="btnFinalizarModificar">
+                                            <button class="btn btn-secondary" data-dismiss="modal" id="btnCancelarModificar">
+                                                <span aria-hidden="true"></span>
                                                 <i class="far fa-share-square"></i>
                                                 Cancelar
                                             </button>
                                         </div>                                        
                                     </div>
+                                    </br>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+
+                <!-- Modal Consulta de Clientes-->
+                <div class="modal fade" id="ModalConsultar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document" style="max-width: 1200px !important;">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 id="checkboxes-and-radios"><div>Consultar Clientes</div></h2>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                                            
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Cod. Cliente:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" value="00001" disabled>
+                                        </div>                                                                    
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Nombres:</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" value="Gabriel" disabled>
+                                        </div>
+                                        <label class="col-sm-2 col-form-label">Tipo de Persona:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" value="Persona Natural" disabled>
+                                        </div>   
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Apellidos:</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" value="Ramos Zapata" disabled>
+                                        </div>
+                                        <label class="col-sm-1 col-form-label">DNI:</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" value="34545657" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Razón Social:</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" value="" disabled>
+                                        </div>
+                                        <label class="col-sm-1 col-form-label">RUC:</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" value="" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Dirección:</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" value="Av. La Marina N° 2354" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Email:</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" value="gabrielrz@gmail.com" disabled>
+                                        </div>
+                                        <label class="col-sm-1 col-form-label">Teléfono:</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" value="943562345" disabled>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    </br></br>
+                                    <div class="row mt">
+                                        <div class="col-sm-10 text-right">
+                                            <button class="btn btn-secondary" data-dismiss="modal" id="btnRegresarConsultar">
+                                                <span aria-hidden="true"></span>
+                                                <i class="far fa-share-square"></i>
+                                                Regresar
+                                            </button>
+                                        </div>                                        
+                                    </div>
+                                    </br>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+
+                <!-- Modal Eliminar Clientes-->
+                <div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document" style="max-width: 1200px !important;">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 id="checkboxes-and-radios"><div>Eliminar Clientes</div></h2>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                                            
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Cod. Cliente:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" value="00001" disabled>
+                                        </div>                                                                    
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Nombres:</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" value="Gabriel" disabled>
+                                        </div>
+                                        <label class="col-sm-2 col-form-label">Tipo de Persona:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" value="Persona Natural" disabled>
+                                        </div>   
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Apellidos:</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" value="Ramos Zapata" disabled>
+                                        </div>
+                                        <label class="col-sm-1 col-form-label">DNI:</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" value="34545657" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Razón Social:</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" value="" disabled>
+                                        </div>
+                                        <label class="col-sm-1 col-form-label">RUC:</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" value="" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Dirección:</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" value="Av. La Marina N° 2354" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Email:</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" value="gabrielrz@gmail.com" disabled>
+                                        </div>
+                                        <label class="col-sm-1 col-form-label">Teléfono:</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" value="943562345" disabled>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    </br></br>
+                                    <div class="row mt">
+                                        <div class="col-sm-10 text-right">
+                                            <button class="btn btn-secondary" id="btnEliminarEliminar">
+                                                <i class="far fa-edit"></i>
+                                                Eliminar
+                                            </button>
+                                            <button class="btn btn-secondary" data-dismiss="modal" id="btnCancelarEliminar">
+                                                <span aria-hidden="true"></span>
+                                                <i class="far fa-share-square"></i>
+                                                Cancelar
+                                            </button>
+                                        </div>                                        
+                                    </div>
+                                    </br>
                             </div>
                         </div>
                      </div>
