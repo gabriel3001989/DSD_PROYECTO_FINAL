@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -92,12 +94,14 @@
     </div>
 
     <script src="js/functionsGenerals.js"></script>
-
+	<script src="js/functions.js"></script>
     <script>
+	
         $('#btnActualizarClienteMain').on('click', function () {
             $('div.SubOption').removeClass('option-active');
             $(this).addClass('option-active');
             $('#divContenido').load($(this).attr('page') + '?_c=' + GenerarStringAleatorio(15));
+		
         });
 
         $('#btnLogo').on('click', function () {

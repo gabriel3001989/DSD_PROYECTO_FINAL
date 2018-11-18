@@ -2,6 +2,51 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script>
+		$(function() {
+			/*Carga listado de clientes*/
+			getClientsAjax();
+			
+			/*Eventos al cargar modal*/
+			$('#ModalCrear').on('show.bs.modal', function () {
+				/*Limpiar formulario */
+				$('#frm_new_client')[0].reset();
+			});
+			
+			/*Evento para crear nuevo cliente*/
+			$('#frm_new_client').on('submit', function(e) {
+			  e.preventDefault();
+
+				var formData = $(this).serializeObject();
+			  
+			  
+				jQuery.ajaxSetup({
+					async: false,
+					cache: false
+				});
+			
+				jQuery.ajax({
+					url: url,
+					type: "POST",
+					crossDomain: true,
+					data: formData,
+					success: function (data, textStatus, jQxhr) {
+						if(parseInt(jQxhr.status) === 200){
+						
+							getClientsAjax();
+							$('#ModalCrear').modal('hide');
+						}			
+					   
+					},
+					error: function (jqXhr, textStatus, errorThrown) {
+						console.log(jQxhr.status);
+					}
+				});
+				return;
+			  
+			});
+    });
+	</script>
     </head>
     <body>
 
@@ -48,7 +93,7 @@
 
                 <div class="row mt">
                     <div class="col-sm-12 text-center">
-                        <table class="table">
+                        <table class="table" id="tb_clientes">
                             <thead>
                                 <tr>
                                     <th scope="col"><input type="checkbox" aria-label="Checkbox for following text input"></th>
@@ -60,59 +105,9 @@
                                     <th scope="col">RUC</th>
                                     <th scope="col">Dirección</th>
                                     <th scope="col">Tipo Persona</th>
-                                    <!-- 
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Teléfono</th>-->
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
-                                    <td>00001</td>
-                                    <td>Gabriel</td>
-                                    <td>Ramos Zapata</td>
-                                    <td>34545657</td>
-                                    <td></td>
-                                    <td>103452635467</td>
-                                    <td>Av. La Marina N° 2354</td>
-                                    <td>Persona Natural</td>
-                                    <!--<td>gabrielrz@gmail.com</td>
-                                    <td>943562345</td>-->
-                                </tr>
-                                <tr>
-                                    <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
-                                    <td>00002</td>
-                                    <td>Luis</td>
-                                    <td>Alonso Elguera</td>
-                                    <td>45637477</td>
-                                    <td></td>
-                                    <td>103454673452</td>
-                                    <td>Calle San Luis N° 342</td>
-                                    <td>Persona Natural</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
-                                    <td>00003</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>SYSDE S.A.</td>
-                                    <td>203463546712</td>
-                                    <td>Av. Javier Prado N° 2435</td>
-                                    <td>Persona Jurídica</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
-                                    <td>00004</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>INDRA S.A.</td>
-                                    <td>203546243564</td>
-                                    <td>Calle Los Rosales N° 345</td>
-                                    <td>Persona Jurídica</td>
-                                </tr>
-
                             </tbody>
                         </table>
                     </div>
@@ -155,23 +150,22 @@
                             </div>
                                             
                             <div class="modal-body">
-                                <form>
-                                    <div class="form-group row">
+                                <form id="frm_new_client">
+                                   <!--  <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Cod. Cliente:</label>
                                         <div class="col-sm-3">
                                             <input type="text" class="form-control" value="00005" disabled>
                                         </div>                                                                    
-                                    </div>
+                                    </div>-->
 
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Nombres:</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" value="">
+                                            <input type="text" class="form-control" value="" name="ipt_nombres">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Tipo de Persona:</label>
                                         <div class="form-group col-md-3">
-                                          <!--<<label for="inputState">Tipo de Persona:</label>-->
-                                          <select id="inputState" class="form-control">
+                                          <select id="inputState" class="form-control"  name="ipt_tipo_persona">
                                             <option selected>Persona Natural</option>
                                             <option>Persona Jurídica</option>
                                           </select>
@@ -181,48 +175,49 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Apellidos:</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" value="">
+                                            <input type="text" class="form-control" value="" name="ipt_apellidos">
                                         </div>
                                         <label class="col-sm-1 col-form-label">DNI:</label>
                                         <div class="col-sm-2">
-                                            <input type="text" class="form-control" value="">
+                                            <input type="text" class="form-control" value="" name="ipt_dni">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Razón Social:</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" value="">
+                                            <input type="text" class="form-control" value="" name="ipt_razon_social">
                                         </div>
                                         <label class="col-sm-1 col-form-label">RUC:</label>
                                         <div class="col-sm-2">
-                                            <input type="text" class="form-control" value="">
+                                            <input type="text" class="form-control" value="" name="ipt_ruc">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Dirección:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" value="">
+                                            <input type="text" class="form-control" value="" name="ipt_direccion">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Email:</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" value="">
+                                            <input type="text" class="form-control" value="" name="ipt_email">
                                         </div>
                                         <label class="col-sm-1 col-form-label">Teléfono:</label>
                                         <div class="col-sm-2">
-                                            <input type="text" class="form-control" value="">
+                                            <input type="text" class="form-control" value="" name="ipt_telefono">
                                         </div>
                                     </div>
                                     <br>
-
+									<input type="hidden" class="form-control" value="newClient" name="action">
+									
                                     </br></br>
                                     <div class="row mt">
                                         <div class="col-sm-11 text-right">
-                                            <button class="btn btn-secondary" id="btnModificarModificar">
+										<button class="btn btn-secondary" id="btnModificarModificar">
                                                 <i class="far fa-edit"></i>
                                                 Crear
                                             </button>
