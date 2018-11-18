@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    </head>
+    <body>
+
+        <div class="container mt-3" id="divContenido">
+
+            <h2 id="checkboxes-and-radios"><div>Lista de Comprobantes de Pago</div></h2>
+            <br>
+            <div class="form-row">
+                <div class="col-sm-3 text-left">
+                Nro. de Comprobante de Pago:
+                </div>
+                <div class="col-sm-3 text-center">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" aria-describedby="basic-addon2">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+				<div class="col-sm-3 text-left">
+                Nombre del Cliente:
+                </div>
+                <div class="col-sm-9 text-center">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button">Buscar</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt">
+                <div class="col-sm-12 text-center">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                <th scope="col">Nro. Comprobante de Pago</th>
+                                <th scope="col">Nro. de pedido</th>
+                                <th scope="col">Nombre del cliente</th>
+                                <th scope="col">Fecha de Emisión</th>
+                                <th scope="col">Monto Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                <td>00000001</td>
+                                <td>10004895</td>
+                                <td>Pareja Jordan, Hernan Rodrigo</td>
+                                <td>01-07-2018</td>
+                                <td>192.70</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                <td>00000002</td>
+                                <td>10004689</td>
+                                <td>Ayala Villegas, Juan Jose</td>
+                                <td>01-07-2018</td>
+                                <td>1780.50</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                <td>00000003</td>
+                                <td>10004533</td>
+                                <td>Garcia Ramos, Claudia Lorena</td>
+                                <td>30-06-2018</td>
+                                <td>856.90</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                <td>00000004</td>
+                                <td>10004178</td>
+                                <td>Ramos zapata, Gabriel</td>
+                                <td>29-06-2018</td>
+                                <td>2480.50</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </br></br>
+            <div class="row mt">
+                <div class="col-sm-12 text-right">
+                    <button class="btn btn-secondary float-right ml-2 btn-sm" id="btnSalirComprobante">
+                        <i class="far fa-share-square"></i>
+                        Salir
+                    </button>
+                    <button class="btn btn-secondary float-right ml-2 btn-sm" data-toggle="modal" data-target="#ModalConsultar" id="btnConsultarComprobante">
+                        <i class="far fa-share-square"></i>
+                        Consultar
+                    </button>
+                    <button class="btn btn-secondary float-right ml-2 btn-sm" data-toggle="modal" data-target="#ModalGenerar" id="btnGenerarComprobante">
+                        <i class="far fa-edit"></i>
+                        Generar
+                    </button>
+                </div>                                        
+            </div>
+
+        </div>
+
+        <!-- Modal Generar comprobante-->
+        <div class="modal fade" id="ModalGenerar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="max-width: 1000px !important;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 id="checkboxes-and-radios"><div>Generar Comprobante de Pago</div></h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+						    <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Fecha:</label>							
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="01/07/2018" disabled>
+                                </div>
+                                <label class="col-sm-2 col-form-label">Hora:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="09:35:45" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Cliente:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" value="Pareja Jordan, Hernan Rodrigo" disabled>
+                                </div>
+                                <label class="col-sm-2 col-form-label">RUC/DNI:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="1048146663" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Dirección:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" value="Av. Parque de las leyendas #184 - San Miguel" disabled>
+                                </div>  
+                                <label class="col-sm-2 col-form-label">Teléfono:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="639-2668" disabled>
+                                </div>                              
+                            </div>
+                            <div class="form-group row">
+    							<label class="col-sm-2 col-form-label">Medio de Pago:</label>
+                                <div class="col-sm-2">
+                                    <form>
+         						    	  <input type="radio" name="gender" value="Efectivo" checked> Efectivo  
+        							</form>                                     
+                                </div>
+                                <div class="col-sm-2">
+                                <form> 
+                                      <input type="radio" name="gender" value="Tarjeta"> Tarjeta<br>
+                                </form> 
+                                </div>
+                            </div>
+							<div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Moneda:</label>
+                                <div class="col-sm-2">
+                                    <form>
+                                          <input type="radio" name="gender" value="Soles" checked> Soles  
+                                    </form>                                     
+                                </div>
+                                <div class="col-sm-2">
+                                <form> 
+                                      <input type="radio" name="gender" value="Dólares"> Dólares<br>
+                                </form> 
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 text-right col-form-label">Monto Total:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="1780.50" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 text-right col-form-label">Monto Entregado:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="1800.50">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 text-right col-form-label">Vuelto:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="19.50" disabled>
+                                </div>
+                            </div>
+                        </form>
+
+						</br></br>
+                        <div class="row mt">
+                            <div class="col-sm-11 text-right">
+                                <button class="btn btn-secondary" id="btnGenerarGenerar">
+                                    <i class="far fa-share-square"></i>
+                                    Generar
+                                </button>
+                                <button class="btn btn-secondary" data-dismiss="modal" id="btnRegresarGenerar">
+                                    <span aria-hidden="true"></span>
+                                    <i class="far fa-share-square"></i>
+                                    Regresar
+                                </button>
+                            </div>                                        
+                        </div>
+                        </br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Consultar comprobante-->
+        <div class="modal fade" id="ModalConsultar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="max-width: 1000px !important;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 id="checkboxes-and-radios"><div>Consultar Comprobante de Pago</div></h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Fecha:</label>                           
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="01/07/2018" disabled>
+                                </div>
+                                <label class="col-sm-2 col-form-label">Hora:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="09:35:45" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Cliente:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" value="Pareja Jordan, Hernan Rodrigo" disabled>
+                                </div>
+                                <label class="col-sm-2 col-form-label">RUC/DNI:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="1048146663" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Dirección:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" value="Av. Parque de las leyendas #184 - San Miguel" disabled>
+                                </div>  
+                                <label class="col-sm-2 col-form-label">Teléfono:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="639-2668" disabled>
+                                </div>                              
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Medio de Pago:</label>
+                                <div class="col-sm-2">
+                                    <form>
+                                          <input type="radio" name="gender" value="Efectivo" disabled checked> Efectivo  
+                                    </form>                                     
+                                </div>
+                                <div class="col-sm-2">
+                                <form> 
+                                      <input type="radio" name="gender" value="Tarjeta" disabled> Tarjeta<br>
+                                </form> 
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Moneda:</label>
+                                <div class="col-sm-2">
+                                    <form>
+                                          <input type="radio" name="gender" value="Soles" disabled checked> Soles  
+                                    </form>                                     
+                                </div>
+                                <div class="col-sm-2">
+                                <form> 
+                                      <input type="radio" name="gender" value="Dólares" disabled> Dólares<br>
+                                </form> 
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 text-right col-form-label">Monto Total:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="1780.50" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 text-right col-form-label">Monto Entregado:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="1800.50" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 col-form-label"></label>
+                                <label class="col-sm-2 text-right col-form-label">Vuelto:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="19.50" disabled>
+                                </div>
+                            </div>
+                        </form>
+
+                        </br></br>
+                        <div class="row mt">
+                            <div class="col-sm-11 text-right">
+                                <button class="btn btn-secondary" data-dismiss="modal" id="btnRegresarGenerar">
+                                    <span aria-hidden="true"></span>
+                                    <i class="far fa-share-square"></i>
+                                    Regresar
+                                </button>
+                            </div>                                        
+                        </div>
+                        </br>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

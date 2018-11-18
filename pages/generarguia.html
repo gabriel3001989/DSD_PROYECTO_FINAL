@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    </head>
+    <body>
+
+        <div class="container mt-3" id="divContenido">
+
+            <h2 id="checkboxes-and-radios"><div>Lista de Guías de Remisión</div></h2>
+            <br>
+            <div class="form-row">
+                <div class="col-sm-3 text-left">
+                Número de Guía de Remisión:
+                </div>
+                <div class="col-sm-3 text-left">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" aria-describedby="basic-addon2">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-sm-3 text-left">
+                Nombre del Cliente:
+                </div>
+                <div class="col-sm-9 text-center">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button">Buscar</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt">
+                <div class="col-sm-12 text-center">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                <th scope="col">Nro. de Guía de Remisión</th>
+                                <th scope="col">Nro. de Comprobante</th>
+                                <th scope="col">Nombre del cliente</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                <td>20004563</td>
+                                <td>00000001</td>                                
+                                <td>Gabriel Ramos Zapata</td>
+                                <td>28-10-2018</td>
+                                <td>Pendiente</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                <td>20008343</td>
+                                <td>00000002</td>
+                                <td>Luis Alonso Elguera</td>
+                                <td>28-10-2018</td>
+                                <td>Pendiente</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                <td>20002134</td>
+                                <td>00000003</td>
+                                <td>Roy Cespedes</td>
+                                <td>28-10-2018</td>
+                                <td>Anulado</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                <td>20009045</td>
+                                <td>00000004</td>
+                                <td>the Bird</td>
+                                <td>28-10-2018</td>
+                                <td>Entregado</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </br></br>
+            <div class="row mt">
+                <div class="col-sm-12 text-right">
+                    <button class="btn btn-secondary float-right ml-2 btn-sm" id="btnSalirCliente">
+                            <i class="far fa-share-square"></i>
+                            Salir
+                    </button>
+                    <button class="btn btn-secondary float-right ml-2 btn-sm" data-toggle="modal" data-target="#ModalModificar" id="btnModificarGuia">
+                            <i class="far fa-edit"></i>
+                            Modificar
+                    </button>
+                    <button class="btn btn-secondary float-right ml-2 btn-sm" data-toggle="modal" data-target="#ModalConsultar" id="btnConsultarGuia">
+                            <i class="fas fa-search"></i>
+                            Consultar 
+                    </button>
+                    <button class="btn btn-secondary float-right btn-sm" data-toggle="modal" data-target="#ModalGenerar" id="btnGenerarGuia">
+                            <i class="far fa-file"></i>
+                            Generar
+                    </button>
+                </div>                                        
+            </div>
+
+        </div>
+
+        <!-- Modal Generar Guía-->
+        <div class="modal fade" id="ModalGenerar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="max-width: 1300px !important;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 id="checkboxes-and-radios"><div>Generar Guía de Remisión</div></h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Número de comprobante:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="000001" disabled>
+                                </div>
+                                <label class="col-sm-2 col-form-label">Número de guía:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="" disabled>
+                                </div>
+                                <label class="col-sm-2 col-form-label">Estado:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="Pendiente" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Fecha:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="17-11-2018" disabled>
+                                </div>
+                                <label class="col-sm-2 col-form-label">Hora:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="12:30:01" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Cliente:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" value="Gabriel Ramos Zapata" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Dirección:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" value="Av. La Marina N° 2354" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">RUC/DNI:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="34545657" disabled>
+                                </div>
+                                <label class="col-sm-2 col-form-label">Teléfono:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="943562345" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Punto de Partida:</label>
+                                <div class="form-group col-md-6">
+                                  <!--<<label for="inputState">Tipo de Persona:</label>-->
+                                  <select id="inputState" class="form-control">
+                                    <option selected>Tienda La Victoria - Av. Paseo de la República #1427</option>
+                                    <option>Tienda San Miguel - Av. La Marina #2839</option>
+                                    <option>Tienda Los Olivos - Av. Universitaria #245</option>
+                                  </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Transportista:</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" value="">
+                                </div>
+                                <label class="col-sm-1 col-form-label">DNI:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Punto de llegada:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" value="">
+                                </div>
+                            </div>                        
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Persona a entregar:</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" value="">
+                                </div>
+                                <label class="col-sm-1 col-form-label">DNI:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="">
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="row mt">
+                            <div class="col-sm-12 text-center">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Código</th>
+                                            <th scope="col">Cantidad</th>
+                                            <th scope="col">Producto</th>
+                                            <th scope="col">Descripción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>0001</td>
+                                            <td>4</td>
+                                            <td>Producto 1</td>
+                                            <td>Desc. Producto 1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>0002</td>
+                                            <td>10</td>
+                                            <td>Producto 2</td>
+                                            <td>Desc. Producto 2</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        </br></br>
+                        <div class="row mt">
+                            <div class="col-sm-11 text-right">
+                                <button class="btn btn-secondary" id="btnGenerarGenerar">
+                                    <i class="far fa-share-square"></i>
+                                    Generar
+                                </button>
+                                <button class="btn btn-secondary" data-dismiss="modal" id="btnRegresarGenerar">
+                                    <span aria-hidden="true"></span>
+                                    <i class="far fa-share-square"></i>
+                                    Regresar
+                                </button>
+                            </div>                                        
+                        </div>
+                        </br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Modificar Guía-->
+        <div class="modal fade" id="ModalModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="max-width: 1300px !important;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 id="checkboxes-and-radios"><div>Modificar Guía de Remisión</div></h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Número de comprobante:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="000001" disabled>
+                                </div>
+                                <label class="col-sm-2 col-form-label">Número de guía:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="" disabled>
+                                </div>
+                                <label class="col-sm-2 col-form-label">Estado:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="Pendiente" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Fecha:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="17-11-2018" disabled>
+                                </div>
+                                <label class="col-sm-2 col-form-label">Hora:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="12:30:01" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Cliente:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" value="Gabriel Ramos Zapata" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Dirección:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" value="Av. La Marina N° 2354" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">RUC/DNI:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="34545657" disabled>
+                                </div>
+                                <label class="col-sm-2 col-form-label">Teléfono:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="943562345" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Punto de Partida:</label>
+                                <div class="form-group col-md-6">
+                                  <!--<<label for="inputState">Tipo de Persona:</label>-->
+                                  <select id="inputState" class="form-control">
+                                    <option selected>Tienda La Victoria - Av. Paseo de la República #1427</option>
+                                    <option>Tienda San Miguel - Av. La Marina #2839</option>
+                                    <option>Tienda Los Olivos - Av. Universitaria #245</option>
+                                  </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Transportista:</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" value="">
+                                </div>
+                                <label class="col-sm-1 col-form-label">DNI:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Punto de llegada:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" value="">
+                                </div>
+                            </div>                        
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Persona a entregar:</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" value="">
+                                </div>
+                                <label class="col-sm-1 col-form-label">DNI:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="">
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="row mt">
+                            <div class="col-sm-12 text-center">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Código</th>
+                                            <th scope="col">Cantidad</th>
+                                            <th scope="col">Producto</th>
+                                            <th scope="col">Descripción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>0001</td>
+                                            <td>4</td>
+                                            <td>Producto 1</td>
+                                            <td>Desc. Producto 1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>0002</td>
+                                            <td>10</td>
+                                            <td>Producto 2</td>
+                                            <td>Desc. Producto 2</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        </br></br>
+                        <div class="row mt">
+                            <div class="col-sm-11 text-right">
+                                <button class="btn btn-secondary" id="btnEntregadoModificar">
+                                    <i class="far fa-share-square"></i>
+                                    Entregado
+                                </button>
+                                <button class="btn btn-secondary" id="btnAnuladoModificar">
+                                    <i class="far fa-share-square"></i>
+                                    Anulado
+                                </button>
+                                <button class="btn btn-secondary" data-dismiss="modal" id="btnRegresarModificar">
+                                    <span aria-hidden="true"></span>
+                                    <i class="far fa-share-square"></i>
+                                    Regresar
+                                </button>
+                            </div>                                        
+                        </div>
+                        </br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Consultar Guía-->
+        <div class="modal fade" id="ModalConsultar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="max-width: 1300px !important;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 id="checkboxes-and-radios"><div>Consultar Guía de Remisión</div></h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Número de comprobante:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="000001" disabled>
+                                </div>
+                                <label class="col-sm-2 col-form-label">Número de guía:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="" disabled>
+                                </div>
+                                <label class="col-sm-2 col-form-label">Estado:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="Pendiente" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Fecha:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="17-11-2018" disabled>
+                                </div>
+                                <label class="col-sm-2 col-form-label">Hora:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="12:30:01" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Cliente:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" value="Gabriel Ramos Zapata" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Dirección:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" value="Av. La Marina N° 2354" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">RUC/DNI:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="34545657" disabled>
+                                </div>
+                                <label class="col-sm-2 col-form-label">Teléfono:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="943562345" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Punto de Partida:</label>
+                                <div class="form-group col-md-6">
+                                  <!--<<label for="inputState">Tipo de Persona:</label>-->
+                                  <select id="inputState" class="form-control" disabled>
+                                    <option selected>Tienda La Victoria - Av. Paseo de la República #1427</option>
+                                    <option>Tienda San Miguel - Av. La Marina #2839</option>
+                                    <option>Tienda Los Olivos - Av. Universitaria #245</option>
+                                  </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Transportista:</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" value="" disabled>
+                                </div>
+                                <label class="col-sm-1 col-form-label">DNI:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Punto de llegada:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" value="" disabled>
+                                </div>
+                            </div>                        
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Persona a entregar:</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" value="" disabled>
+                                </div>
+                                <label class="col-sm-1 col-form-label">DNI:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="" disabled>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="row mt">
+                            <div class="col-sm-12 text-center">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Código</th>
+                                            <th scope="col">Cantidad</th>
+                                            <th scope="col">Producto</th>
+                                            <th scope="col">Descripción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>0001</td>
+                                            <td>4</td>
+                                            <td>Producto 1</td>
+                                            <td>Desc. Producto 1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>0002</td>
+                                            <td>10</td>
+                                            <td>Producto 2</td>
+                                            <td>Desc. Producto 2</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        </br></br>
+                        <div class="row mt">
+                            <div class="col-sm-11 text-right">
+                                <button class="btn btn-secondary" data-dismiss="modal" id="btnRegresarConsultar">
+                                    <span aria-hidden="true"></span>
+                                    <i class="far fa-share-square"></i>
+                                    Regresar
+                                </button>
+                            </div>                                        
+                        </div>
+                        </br>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
